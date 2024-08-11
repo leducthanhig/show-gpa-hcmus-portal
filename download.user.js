@@ -34,31 +34,8 @@
     else if (gpa >= 4) gpa_4 = 1.5;
     else if (gpa >= 3) gpa_4 = 1;
     else gpa_4 = 0;
-    switch (gpa_4) {
-        case 4:
-            grade = 'A+';
-            break;
-        case 3.5:
-            grade = 'A';
-            break;
-        case 3:
-            grade = 'B+';
-            break;
-        case 2.5:
-            grade = 'B';
-            break;
-        case 2:
-            grade = 'C';
-            break;
-        case 1.5:
-            grade = 'D+';
-            break;
-        case 1:
-            grade = 'D';
-            break;
-        default:
-            grade = 'F';
-    }
+    grade = Object({4: 'A+', 3.5: 'A', 3: 'B+', 2.5: 'B', 2: 'C', 1.5: 'D+', 1: 'D', 0: 'F'})[gpa_4];
+    
     const footer = document.createElement('tfoot');
     const row = document.createElement('tr');
     const th_weights_total_header = document.createElement('th');
