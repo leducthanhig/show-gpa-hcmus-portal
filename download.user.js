@@ -50,6 +50,8 @@
     row.appendChild(th_gpa_header);
     row.appendChild(th_gpa_data);
     row.appendChild(th_gpa_note);
+
+    footer.title = 'Không tính các HP thể dục, GDQP, THCS và các HP chưa có điểm';
     
     th_weights_total_header.innerText = 'Tổng tín chỉ tích lũy:';
     th_weights_total_header.style.setProperty('text-align', 'right');
