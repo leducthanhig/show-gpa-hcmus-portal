@@ -16,7 +16,15 @@
     let marks = [], weights = [], weights_total = 0;
     for (const row of tbl.children[1].children) {
         const cols = row.children;
-        if (cols[5].innerText && !isNaN(Number(cols[5].innerText)) && !['ADD0003', 'BAA0002', 'BAA0003'].includes(cols[1].innerText.slice(0, 7)) && !cols[1].innerText.includes('CSC00003')) {
+        if (!cols[5].innerText) {
+            row.style.textDecoration = 'line-through';
+            row.style.color = 'gray';
+        }
+        else if (['ADD0003', 'BAA0002', 'BAA0003'].includes(cols[1].innerText.slice(0, 7)) || cols[1].innerText.includes('CSC00004')) {
+            row.style.textDecoration = 'line-through';
+            row.style.color = 'red';
+        }
+        else {
             marks.push(Number(cols[5].innerText));
             weights.push(Number(cols[2].innerText));
             weights_total += weights[weights.length - 1];
