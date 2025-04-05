@@ -19,10 +19,12 @@
         if (!cols[5].innerText) {
             row.style.textDecoration = 'line-through';
             row.style.color = 'gray';
+            row.title = 'HP chưa có điểm';
         }
         else if (['ADD0003', 'BAA0002', 'BAA0003'].includes(cols[1].innerText.slice(0, 7)) || cols[1].innerText.includes('CSC00004')) {
             row.style.textDecoration = 'line-through';
             row.style.color = 'red';
+            row.title = 'HP không tính vào GPA tích lũy';
         }
         else {
             marks.push(Number(cols[5].innerText));
