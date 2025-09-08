@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Show GPA
+// @name         HCMUS Portal - Show GPA
 // @namespace    http://tampermonkey.net/
 // @version      2024-08-02
 // @description  Calulate and show the GPA on HCMUS Portal
@@ -21,7 +21,7 @@
             row.style.color = 'gray';
             row.title = 'HP chưa có điểm';
         }
-        else if (['ADD0003', 'BAA0002', 'BAA0003'].includes(cols[1].innerText.slice(0, 7)) || cols[1].innerText.includes('CSC00004')) {
+        else if (['ADD0003', 'BAA0002', 'BAA0003'].includes(cols[1].innerText.slice(0, 7))) {
             row.style.textDecoration = 'line-through';
             row.style.color = 'red';
             row.title = 'HP không tính vào GPA tích lũy';
@@ -62,21 +62,21 @@
     row.appendChild(th_gpa_note);
 
     footer.title = 'Không tính các HP thể dục, GDQP, THCS và các HP chưa có điểm';
-    
+
     th_weights_total_header.innerText = 'Tổng tín chỉ tích lũy:';
     th_weights_total_header.style.setProperty('text-align', 'right');
     th_weights_total_header.setAttribute('colspan', '2');
-    
+
     th_weights_total_data.innerText = weights_total;
     th_weights_total_data.style.setProperty('text-align', 'center');
-    
+
     th_gpa_header.innerText = 'GPA:';
     th_gpa_header.style.setProperty('text-align', 'right');
     th_gpa_header.setAttribute('colspan', '2');
-    
+
     th_gpa_data.innerText = gpa.toFixed(2);
     th_gpa_data.style.setProperty('text-align', 'left');
-    
+
     th_gpa_note.innerText = `Điểm 4: ${gpa_4}; Điểm chữ: ${grade}`;
     th_gpa_note.style.setProperty('text-align', 'left');
 })();
